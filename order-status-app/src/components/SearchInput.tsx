@@ -19,7 +19,8 @@ export default function SearchInput({ onSearch }: SearchInputProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!value.trim()) {
-      setError("กรุณากรอกหมายเลขคำสั่งซื้อ");
+      setError("");
+      onSearch("");
       return;
     }
     if (!/^ORD-\d+(-\d+)?$/i.test(value.trim())) {
