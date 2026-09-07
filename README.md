@@ -16,7 +16,7 @@ Figma : https://www.figma.com/design/DLLs1COPN1t4ihcUBugKPO/Untitled?node-id=0-1
 
 &#x09;แสดง หมายเลขสินค้า,ชื่อสินค้า,วัน เดือน ปี
 
-ปัญหาที่เจอเป็นเรื่องการ Live Demo Deployment ใช้ของ Vercel ไม่ได้เลยเอาขึ้น Steamlit แต่สีไม่มา
+ปัญหาที่เจอเป็นเรื่องการ Live Demo Deployment ใช้ของ Vercel ไม่ได้เลยเอาขึ้น Steamlit แต่สีไม่มาแต่!!!!!อยู่ๆก็มาแบบงงๆ
 
 
 
