@@ -22,13 +22,13 @@ export default function Home() {
   const displayOrders = activeTab === "current" ? currentOrders : pastOrders;
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-[#0A0A0A]">
       <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl">
+        <div className="mb-8 text-center">
+          <h1 className="text-2xl font-bold sm:text-3xl bg-gradient-to-r from-red-500 to-red-300 bg-clip-text text-transparent">
             ตรวจสอบสถานะคำสั่งซื้อ
           </h1>
-          <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+          <p className="mt-2 text-sm text-[#71717A]">
             ป้อนหมายเลขคำสั่งซื้อในรูปแบบ ORD-xxx-xxx เพื่อตรวจสอบสถานะ
           </p>
         </div>
