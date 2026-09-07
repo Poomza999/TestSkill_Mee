@@ -23,7 +23,7 @@ export default function Tabs({
             : "text-[#71717A] hover:text-[#A1A1AA] hover:bg-[#27272A]"
         }`}
       >
-        📦 ออเดอร์ปัจจุบัน
+        📦 ออเดอร์ยังไม่ชำระ
         <span
           className={`ml-2 inline-flex items-center justify-center rounded-full px-2 py-0.5 text-xs font-medium ${
             activeTab === "current"
@@ -42,7 +42,7 @@ export default function Tabs({
             : "text-[#71717A] hover:text-[#A1A1AA] hover:bg-[#27272A]"
         }`}
       >
-        ✅ ออเดอร์ที่ผ่านมา
+        ✅ ออเดอร์ที่ชำระสำเร็จ
         <span
           className={`ml-2 inline-flex items-center justify-center rounded-full px-2 py-0.5 text-xs font-medium ${
             activeTab === "past"
