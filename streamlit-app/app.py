@@ -56,32 +56,32 @@ ORDERS = [
 ]
 
 STATUS_COLORS = {
-    "pending": ("#FEF3C7", "#92400E"),
-    "in_progress": ("#DBEAFE", "#1E40AF"),
-    "completed": ("#D1FAE5", "#065F46"),
-    "pending_payment": ("#FFEDD5", "#9A3412"),
+    "pending": ("#422006", "#FCD34D"),
+    "in_progress": ("#7F1D1D", "#FCA5A5"),
+    "completed": ("#14532D", "#86EFAC"),
+    "pending_payment": ("#7C2D12", "#FDBA74"),
 }
 
 
 def render_order_card(order: dict):
-    bg, fg = STATUS_COLORS.get(order["status"], ("#F3F4F6", "#374151"))
+    bg, fg = STATUS_COLORS.get(order["status"], ("#1A1A1A", "#FAFAFA"))
     st.markdown(
         f"""
-        <div style="border:1px solid #E5E7EB; border-radius:12px; padding:16px; margin-bottom:12px; background:white;">
+        <div style="border:1px solid #333; border-radius:12px; padding:16px; margin-bottom:12px; background:#1A1A1A;">
             <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
                 <div style="flex:1; min-width:200px;">
-                    <div style="font-family:monospace; font-size:14px; font-weight:600; color:#111827;">
+                    <div style="font-family:monospace; font-size:14px; font-weight:600; color:#FCA5A5;">
                         {order["id"]}
                     </div>
-                    <div style="font-size:14px; color:#6B7280; margin-top:4px;">
+                    <div style="font-size:14px; color:#A1A1AA; margin-top:4px;">
                         {order["items"]}
                     </div>
-                    <div style="font-size:12px; color:#9CA3AF; margin-top:4px;">
+                    <div style="font-size:12px; color:#71717A; margin-top:4px;">
                         {order["date"]}
                     </div>
                 </div>
                 <div style="display:flex; align-items:center; gap:12px;">
-                    <span style="font-size:16px; font-weight:600; color:#111827;">
+                    <span style="font-size:16px; font-weight:600; color:#FCA5A5;">
                         ฿{order["total"]:,}
                     </span>
                     <span style="background:{bg}; color:{fg}; padding:4px 12px; border-radius:9999px; font-size:12px; font-weight:500;">
@@ -96,6 +96,20 @@ def render_order_card(order: dict):
 
 
 def main():
+    st.markdown(
+        """
+        <style>
+        .stApp { background-color: #0F0F0F; }
+        h1 { color: #FCA5A5 !important; }
+        .stTabs [data-baseweb="tab"] { color: #A1A1AA; }
+        .stTabs [aria-selected="true"] { color: #FCA5A5 !important; border-bottom-color: #DC2626 !important; }
+        .stButton > button { background-color: #DC2626; color: white; border: none; }
+        .stButton > button:hover { background-color: #B91C1C; }
+        .stTextInput > div > div > input { background-color: #1A1A1A; color: #FAFAFA; border-color: #333; }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
     st.markdown(
         "<h1 style='margin-bottom:4px;'>ตรวจสอบสถานะคำสั่งซื้อ</h1>",
         unsafe_allow_html=True,
