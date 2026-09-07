@@ -5,13 +5,20 @@ import type { Order } from "@/data/orders";
 
 const statusStyles: Record<string, string> = {
   pending:
-    "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300",
+    "bg-[#1C1917] text-[#FCD34D] border border-[#92400E]",
   in_progress:
-    "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300",
+    "bg-[#1C1917] text-[#FCA5A5] border border-[#7F1D1D]",
   completed:
-    "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300",
+    "bg-[#1C1917] text-[#86EFAC] border border-[#14532D]",
   pending_payment:
-    "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300",
+    "bg-[#1C1917] text-[#FDBA74] border border-[#7C2D12]",
+};
+
+const statusBorders: Record<string, string> = {
+  pending: "#92400E",
+  in_progress: "#7F1D1D",
+  completed: "#14532D",
+  pending_payment: "#7C2D12",
 };
 
 export default function OrderCard({ order }: { order: Order }) {
@@ -27,23 +34,28 @@ export default function OrderCard({ order }: { order: Order }) {
     }
   };
 
+  const borderColor = statusBorders[order.status] || "#3F3F46";
+
   return (
-    <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-gray-800">
+    <div
+      className="rounded-xl border border-[#27272A] bg-gradient-to-br from-[#18181B] to-[#1A1A1E] p-4 shadow-lg transition-all hover:shadow-xl hover:border-[#3F3F46]"
+      style={{ borderLeftWidth: "4px", borderLeftColor: borderColor }}
+    >
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="font-mono text-sm font-semibold text-gray-900 dark:text-white">
+            <span className="font-mono text-sm font-semibold text-[#EF4444]">
               {order.id}
             </span>
             <button
               onClick={handleCopy}
-              className="inline-flex items-center gap-1 rounded-md bg-gray-100 px-2 py-1 text-xs text-gray-600 transition-colors hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
+              className="inline-flex items-center gap-1 rounded-md bg-[#27272A] px-2 py-1 text-xs text-[#A1A1AA] transition-colors hover:bg-[#3F3F46] hover:text-[#FAFAFA]"
               title="คัดลอกหมายเลข"
             >
               {copied ? (
                 <>
                   <svg
-                    className="h-3.5 w-3.5 text-green-500"
+                    className="h-3.5 w-3.5 text-green-400"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -55,9 +67,7 @@ export default function OrderCard({ order }: { order: Order }) {
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span className="text-green-600 dark:text-green-400">
-                    Copied!
-                  </span>
+                  <span className="text-green-400">Copied!</span>
                 </>
               ) : (
                 <>
@@ -79,17 +89,17 @@ export default function OrderCard({ order }: { order: Order }) {
               )}
             </button>
           </div>
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-            {order.items}
+          <p className="mt-1 text-sm text-[#D4D4D8]">
+            🛍️ {order.items}
           </p>
           <div className="flex items-center gap-3 mt-1">
-            <span className="text-xs text-gray-400 dark:text-gray-500">
-              {order.date}
+            <span className="text-xs text-[#71717A]">
+              📅 {order.date}
             </span>
           </div>
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-base font-semibold text-gray-900 dark:text-white">
+          <span className="text-base font-semibold text-[#FCA5A5]">
             ฿{order.total.toLocaleString()}
           </span>
           <span

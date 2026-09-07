@@ -38,18 +38,18 @@ export default function SearchInput({ onSearch }: SearchInputProps) {
           type="text"
           value={value}
           onChange={handleChange}
-          placeholder="กรอกหมายเลขคำสั่งซื้อ เช่น ORD-897605493019231-534"
-          className="flex-1 rounded-lg border border-gray-300 px-4 py-3 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
+          placeholder="🔍 กรอกหมายเลขคำสั่งซื้อ เช่น ORD-897605493019231-534"
+          className="flex-1 rounded-lg border border-[#3F3F46] bg-[#18181B] px-4 py-3 text-sm text-[#FAFAFA] placeholder-[#52525B] focus:border-[#DC2626] focus:outline-none focus:ring-2 focus:ring-[#DC2626]/20 transition-all"
         />
         <button
           type="submit"
-          className="rounded-lg bg-blue-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-700 active:bg-blue-800"
+          className="rounded-lg bg-gradient-to-r from-[#DC2626] to-[#B91C1C] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-red-500/20 transition-all hover:from-[#EF4444] hover:to-[#DC2626] hover:shadow-xl hover:shadow-red-500/30 active:from-[#B91C1C] active:to-[#991B1B]"
         >
-          ค้นหา
+          🔍 ค้นหา
         </button>
       </div>
       {error && (
-        <p className="mt-2 text-sm text-red-500 dark:text-red-400">{error}</p>
+        <p className="mt-2 text-sm text-[#FCA5A5]">❌ {error}</p>
       )}
     </form>
   );
